@@ -69,7 +69,8 @@ class InterviewViewModel : ViewModel() {
                 val response = ApiClient.apiService.generateInterviewQuestions(request)
                 if (response.isSuccessful) {
                     response.body()?.let { openAiResponse ->
-                        val questions = openAiResponse.choices.mapNotNull { it.text?.trim() }
+                        Log.d("InterviewViewModel", "API Response: $openAiResponse")
+                        val questions = openAiResponse.choices.mapNotNull { it.message.content?.trim() }
                         _interviewQuestions.value = questions
                         Log.d("InterviewViewModel", "Generated Questions: $questions")
                     }

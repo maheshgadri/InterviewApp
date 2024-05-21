@@ -23,9 +23,10 @@ data class OpenAiResponse(
     val choices: List<Choice>
 ) {
     data class Choice(
-        val text: String,
-        val index: Int,
-        val logprobs: Any?,
-        val finish_reason: String
+//        val text: String,
+//        val index: Int,
+//        val logprobs: Any?,
+//        val finish_reason: String
+        val message: OpenAiMessage
     )
 }
